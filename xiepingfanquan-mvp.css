@@ -533,8 +533,7 @@ section {
 .img {
   display: block;
   width: 100%;
-  max-height: 400px;
-  object-fit: contain;
+  height: auto;
   border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(0, 0, 0, 0.14);
@@ -568,7 +567,6 @@ section {
 
 .img-grid .img {
   margin: 0;
-  max-height: 320px;
 }
 
 .img-grid figcaption {
