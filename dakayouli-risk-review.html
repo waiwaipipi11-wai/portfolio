@@ -1,0 +1,823 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>打卡有礼 · 风险管理优化｜项目复盘</title>
+    <meta
+      name="description"
+      content="打卡有礼风险管理优化：从一次线上资损事故出发，通过用户决策链路拆解定位四类核心问题，建立事前风险治理机制，实现从被动处理到主动拦截的转变。"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./xiepingfanquan-mvp.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">跳到正文</a>
+
+    <header class="topbar" role="banner">
+      <div class="wrap topbar-inner">
+        <div class="brand" aria-label="页面信息">
+          <div class="brand-title">Portfolio · Case Study</div>
+          <div class="brand-sub">产品经理 · 打卡有礼风险管理优化</div>
+        </div>
+        <nav class="nav" aria-label="页面导航">
+          <a href="#overview">概览</a>
+          <a href="#problem">问题</a>
+          <a href="#solution">方案</a>
+          <a href="#value">价值</a>
+          <a class="primary" href="#takeaways">复盘</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="wrap" role="main">
+      <section class="hero" aria-labelledby="title">
+        <div class="hero-card">
+          <div class="hero-inner">
+            <div class="kicker">
+              <span class="kicker-dot" aria-hidden="true"></span>
+              <span>打卡有礼 · 风险管理优化复盘（转产品后第一个项目）</span>
+            </div>
+
+            <h1 id="title">打卡有礼 <span class="h-latin">Risk Management</span></h1>
+            <p class="subtitle">
+              从一次线上资损事故出发，通过用户决策链路拆解定位四类核心风险问题，建立事前风险治理机制——将"事后兜底"转变为"源头拦截"，在支付环节前终止风险。
+            </p>
+
+            <div class="hero-meta" aria-label="项目基本信息">
+              <div class="meta">
+                <div class="meta-label">项目背景</div>
+                <div class="meta-value">
+                  商家创建打卡有礼活动时误下单远超预期数量的<span class="accent">实体物料</span>，退款时物料已进入生产环节，平台承担部分资损。
+                </div>
+              </div>
+              <div class="meta">
+                <div class="meta-label">个人角色</div>
+                <div class="meta-value">
+                  从设计转产品后的<span class="accent">第一个项目</span>，独立负责问题定位、方案设计、跨团队协同推进。
+                </div>
+              </div>
+              <div class="meta">
+                <div class="meta-label">核心价值</div>
+                <div class="meta-value">
+                  建立了一套<span class="accent">事前风险治理机制</span>：风险从"事后处理"转变为"支付前拦截"，降低平台资损与运营成本。
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="stats" aria-label="项目关键数据摘要">
+            <div class="stat">
+              <div class="stat-num"><span class="accent">1</span></div>
+              <div class="stat-label">资损事故（触发起点）</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num"><span class="accent">4</span></div>
+              <div class="stat-label">核心问题（链路拆解定位）</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">3</div>
+              <div class="stat-label">数据来源（交叉验证）</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">4</div>
+              <div class="stat-label">协同团队（跨团队推进）</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num"><span class="accent">事前</span></div>
+              <div class="stat-label">风险治理转变（事后→事前）</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="layout">
+        <aside class="toc" aria-label="目录">
+          <div class="toc-title">目录</div>
+          <a href="#overview">0. 项目概览</a>
+          <a href="#incident" class="sub">0.1 起因：一次资损事故</a>
+          <a href="#role" class="sub">0.2 角色与定位</a>
+          <a href="#problem">1. 问题发现</a>
+          <a href="#validation">2. 数据验证</a>
+          <a href="#solution">3. 解决方案</a>
+          <a href="#tradeoff">4. 方案对比与取舍</a>
+          <a href="#collab">5. 跨团队协同</a>
+          <a href="#value">6. 项目价值</a>
+          <a href="#takeaways">7. 复盘与成长</a>
+        </aside>
+
+        <div class="content">
+          <section id="overview" class="card" aria-labelledby="overview-title">
+            <h2 id="overview-title">0. 项目概览</h2>
+            <p class="lead">
+              打卡有礼是商家通过实体物料（海报、桌贴等）引导用户到店打卡的营销活动。本项目源于一次真实的线上资损事故——商家误下单大量物料后无法退款，平台承担损失。我没有直接去想解决方案，而是从事故复盘出发，用用户决策链路拆解方法定位了四类核心问题，并逐一设计了对应解决方案，最终建立起一套事前风险治理机制。
+            </p>
+            <div class="grid3" aria-label="项目要点">
+              <div class="meta">
+                <div class="meta-label">业务场景</div>
+                <div class="meta-value">商家创建打卡有礼活动 → 选择实体物料 → 填写数量 → 支付下单 → 供应商生产 → 物料配送门店。</div>
+              </div>
+              <div class="meta">
+                <div class="meta-label">风险痛点</div>
+                <div class="meta-value">用户在多个环节做出错误决策（看不懂规则、算错数量、不知后果），平台缺乏事前拦截机制。</div>
+              </div>
+              <div class="meta">
+                <div class="meta-label">解决思路</div>
+                <div class="meta-value">不解决结果，只解决原因。信息透明 + 风险前置 + 系统统一，将风险拦截在支付环节之前。</div>
+              </div>
+            </div>
+
+            <div class="callout" aria-label="阅读提示">
+              <p class="callout-title callout-title-light" style="font-family: 'Alibaba PuHuiTi', system-ui, sans-serif; font-weight: 900; font-style: italic;"><span aria-hidden="true"></span>核心方法论</p>
+              <p class="lead muted">事故复盘 → 用户决策链路拆解 → 问题归因 → 治因不治果 → 事前风险治理。这是一套从"发现问题"到"系统化解决问题"的完整产品思维链路。</p>
+            </div>
+          </section>
+
+          <section id="incident" class="card" aria-labelledby="incident-title">
+            <h2 id="incident-title">0.1 起因：一次资损事故</h2>
+            <p class="lead">
+              项目始于一个真实案例：某商家在创建打卡有礼活动时，误下单了远超预期数量的实体物料。商家发现后申请退款，但物料已进入生产环节，平台最终承担了部分损失。
+            </p>
+
+            <div class="figure" aria-label="资损事故链路示意">
+              <div class="figure-media">
+                <svg viewBox="0 0 960 200" role="img" aria-label="资损事故链路">
+                  <defs>
+                    <linearGradient id="lossGrad" x1="0" x2="1">
+                      <stop offset="0" stop-color="#ff8041" stop-opacity="0.15" />
+                      <stop offset="1" stop-color="#ff4040" stop-opacity="0.25" />
+                    </linearGradient>
+                  </defs>
+                  <rect x="0" y="0" width="960" height="200" rx="18" fill="url(#lossGrad)" />
+
+                  <!-- 节点 -->
+                  <g font-family="Alibaba PuHuiTi, system-ui, sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.88">
+                    <rect x="30" y="70" width="120" height="48" rx="12" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.18)" />
+                    <text x="90" y="92" text-anchor="middle">商家误下单</text>
+                    <text x="90" y="108" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.56)">数量远超预期</text>
+
+                    <rect x="180" y="70" width="120" height="48" rx="12" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.18)" />
+                    <text x="240" y="92" text-anchor="middle">物料进入生产</text>
+                    <text x="240" y="108" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.56)">供应商已排产</text>
+
+                    <rect x="330" y="70" width="120" height="48" rx="12" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.18)" />
+                    <text x="390" y="92" text-anchor="middle">商家申请退款</text>
+                    <text x="390" y="108" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.56)">发现数量错误</text>
+
+                    <rect x="480" y="70" width="120" height="48" rx="12" fill="rgba(255,160,80,0.18)" stroke="rgba(255,160,80,0.5)" />
+                    <text x="540" y="92" text-anchor="middle">无法退款</text>
+                    <text x="540" y="108" text-anchor="middle" font-size="11" fill="rgba(255,200,150,0.7)">已进入生产</text>
+
+                    <rect x="630" y="70" width="120" height="48" rx="12" fill="rgba(255,80,80,0.18)" stroke="rgba(255,80,80,0.5)" />
+                    <text x="690" y="92" text-anchor="middle">平台承担损失</text>
+                    <text x="690" y="108" text-anchor="middle" font-size="11" fill="rgba(255,150,150,0.7)">资损事件</text>
+                  </g>
+
+                  <!-- 箭头 -->
+                  <g stroke="rgba(255,255,255,0.3)" stroke-width="1.5" fill="none">
+                    <path d="M150,94 L180,94" marker-end="url(#arrowR)" />
+                    <path d="M300,94 L330,94" marker-end="url(#arrowR)" />
+                    <path d="M450,94 L480,94" marker-end="url(#arrowR)" />
+                    <path d="M600,94 L630,94" marker-end="url(#arrowR)" />
+                  </g>
+
+                  <defs>
+                    <marker id="arrowR" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                      <path d="M0,0 L8,4 L0,8 Z" fill="rgba(255,255,255,0.4)" />
+                    </marker>
+                  </defs>
+
+                  <text x="480" y="168" text-anchor="middle" font-family="Alibaba PuHuiTi, system-ui, sans-serif" font-size="12" fill="rgba(255,255,255,0.56)">
+                    核心矛盾：用户决策错误发生在前，平台拦截缺失在后
+                  </text>
+                </svg>
+              </div>
+              <figcaption class="figure-caption">
+                <strong>图 1</strong>：资损事故链路。商家在"填写数量"环节做出错误决策，平台在"支付"环节未能拦截，最终物料进入生产后无法退款。
+              </figcaption>
+            </div>
+
+            <div class="callout" aria-label="事故复盘第一步">
+              <p class="callout-title" style="font-family: 'Alibaba PuHuiTi', system-ui, sans-serif; font-weight: 900; font-style: italic;"><span aria-hidden="true"></span>我的第一步：不是想方案，而是先复盘</p>
+              <p class="lead">
+                拿到案例后，我没有直接去想"怎么防止商家下错单"，而是先做了一次完整的事故复盘。核心方法是<strong>用户决策链路拆解</strong>——把商家从创建活动到退款的整个流程画出来，逐节分析：用户在哪一步做出了错误决策？为什么会做出错误决策？平台为什么没有拦截？
+              </p>
+            </div>
+          </section>
+
+          <section id="role" class="card" aria-labelledby="role-title">
+            <h2 id="role-title">0.2 角色与定位</h2>
+            <p class="lead">这是我转产品后参与的第一个项目。项目的核心挑战不是设计页面，而是从业务目标出发设计产品机制。</p>
+            <div class="grid2" aria-label="职责与成长">
+              <div class="meta">
+                <div class="meta-label">我负责</div>
+                <div class="meta-value">
+                  <span class="pill"><span class="accent">01</span> 事故复盘</span>
+                  <span class="pill"><span class="accent">02</span> 链路拆解</span>
+                  <span class="pill"><span class="accent">03</span> 方案设计</span>
+                  <span class="pill"><span class="accent">04</span> 跨团队推进</span>
+                  <div style="height: 10px"></div>
+                  从事故复盘出发，拆解用户决策链路，定位四类核心问题，设计对应解决方案，并协调运营、法务、研发、供应商四方推进落地。
+                </div>
+              </div>
+              <div class="meta">
+                <div class="meta-label">核心转变</div>
+                <div class="meta-value">
+                  从设计思维（关注页面是否清晰、交互是否顺畅）转向<strong>业务思维</strong>（同时考虑用户价值、业务价值、风险成本、组织协同）。一个简单的提示文案，背后关联着商家认知、平台资损、法务风险、运营效率。
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="problem" class="card" aria-labelledby="problem-title">
+            <h2 id="problem-title">1. 问题发现：用户决策链路拆解</h2>
+            <p class="lead">
+              把商家从创建活动到退款的整个流程画出来，逐节分析"用户在哪一步做出了错误决策？为什么会做出错误决策？平台为什么没有拦截？"最终定位出四类核心问题。
+            </p>
+
+            <h3>用户决策链路全景</h3>
+            <div class="figure" aria-label="用户决策链路拆解图">
+              <div class="figure-media">
+                <svg viewBox="0 0 960 520" role="img" aria-label="用户决策链路拆解：7个环节与4类问题标注">
+                  <defs>
+                    <linearGradient id="chainGrad" x1="0" x2="0" y1="0" y2="1">
+                      <stop offset="0" stop-color="rgba(255,128,65,0.06)" />
+                      <stop offset="1" stop-color="rgba(255,128,65,0.02)" />
+                    </linearGradient>
+                  </defs>
+                  <rect x="0" y="0" width="960" height="520" rx="18" fill="url(#chainGrad)" />
+
+                  <!-- 左侧：链路节点 -->
+                  <g font-family="Alibaba PuHuiTi, system-ui, sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.88">
+                    <!-- 节点 1 -->
+                    <rect x="40" y="30" width="160" height="42" rx="12" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.14)" />
+                    <text x="120" y="56" text-anchor="middle">进入活动</text>
+                    <!-- 节点 2 -->
+                    <rect x="40" y="92" width="160" height="42" rx="12" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.14)" />
+                    <text x="120" y="118" text-anchor="middle">选择实体物料</text>
+                    <!-- 节点 3 -->
+                    <rect x="40" y="154" width="160" height="42" rx="12" fill="rgba(255,128,65,0.14)" stroke="rgba(255,128,65,0.5)" />
+                    <text x="120" y="180" text-anchor="middle" fill="rgba(255,200,150,0.95)">填写数量</text>
+                    <!-- 节点 4 -->
+                    <rect x="40" y="216" width="160" height="42" rx="12" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.14)" />
+                    <text x="120" y="242" text-anchor="middle">确认订单</text>
+                    <!-- 节点 5 -->
+                    <rect x="40" y="278" width="160" height="42" rx="12" fill="rgba(255,128,65,0.14)" stroke="rgba(255,128,65,0.5)" />
+                    <text x="120" y="304" text-anchor="middle" fill="rgba(255,200,150,0.95)">支付</text>
+                    <!-- 节点 6 -->
+                    <rect x="40" y="340" width="160" height="42" rx="12" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.14)" />
+                    <text x="120" y="366" text-anchor="middle">进入生产</text>
+                    <!-- 节点 7 -->
+                    <rect x="40" y="402" width="160" height="42" rx="12" fill="rgba(255,80,80,0.12)" stroke="rgba(255,80,80,0.4)" />
+                    <text x="120" y="428" text-anchor="middle" fill="rgba(255,150,150,0.9)">申请退款</text>
+                  </g>
+
+                  <!-- 连接箭头 -->
+                  <g stroke="rgba(255,255,255,0.2)" stroke-width="1.5" fill="none">
+                    <path d="M120,72 L120,92" marker-end="url(#arrowD)" />
+                    <path d="M120,134 L120,154" marker-end="url(#arrowD)" />
+                    <path d="M120,196 L120,216" marker-end="url(#arrowD)" />
+                    <path d="M120,258 L120,278" marker-end="url(#arrowD)" />
+                    <path d="M120,320 L120,340" marker-end="url(#arrowD)" />
+                    <path d="M120,382 L120,402" marker-end="url(#arrowD)" />
+                  </g>
+                  <defs>
+                    <marker id="arrowD" markerWidth="8" markerHeight="8" refX="4" refY="6" orient="auto">
+                      <path d="M0,0 L8,0 L4,8 Z" fill="rgba(255,255,255,0.35)" />
+                    </marker>
+                  </defs>
+
+                  <!-- 右侧：问题标注 -->
+                  <g font-family="Alibaba PuHuiTi, system-ui, sans-serif" font-size="12">
+                    <!-- 连接线 -->
+                    <g stroke="rgba(255,128,65,0.4)" stroke-dasharray="4,4" stroke-width="1.2" fill="none">
+                      <path d="M200,175 L280,175" />
+                      <path d="M200,299 L280,299" />
+                      <path d="M200,423 L280,423" />
+                    </g>
+
+                    <!-- 问题 1 -->
+                    <rect x="280" y="150" width="300" height="54" rx="14" fill="rgba(255,128,65,0.1)" stroke="rgba(255,128,65,0.4)" />
+                    <circle cx="306" cy="177" r="14" fill="#ff8041" />
+                    <text x="306" y="181" text-anchor="middle" font-family="Unbounded, system-ui, sans-serif" font-size="13" fill="#131313" font-weight="700">1</text>
+                    <text x="328" y="172" fill="rgba(255,255,255,0.92)" font-weight="700" font-size="13">规则感知缺失</text>
+                    <text x="328" y="190" fill="rgba(255,255,255,0.6)" font-size="11">用户不知道退款规则 → 无法预判后果</text>
+
+                    <!-- 问题 2 -->
+                    <rect x="280" y="274" width="300" height="54" rx="14" fill="rgba(255,128,65,0.1)" stroke="rgba(255,128,65,0.4)" />
+                    <circle cx="306" cy="301" r="14" fill="#ff8041" />
+                    <text x="306" y="305" text-anchor="middle" font-family="Unbounded, system-ui, sans-serif" font-size="13" fill="#131313" font-weight="700">2</text>
+                    <text x="328" y="296" fill="rgba(255,255,255,0.92)" font-weight="700" font-size="13">数量认知错误</text>
+                    <text x="328" y="314" fill="rgba(255,255,255,0.6)" font-size="11">用户理解的数量 ≠ 系统计算逻辑</text>
+
+                    <!-- 问题 3 -->
+                    <rect x="620" y="150" width="300" height="54" rx="14" fill="rgba(255,128,65,0.1)" stroke="rgba(255,128,65,0.4)" />
+                    <circle cx="646" cy="177" r="14" fill="#ff8041" />
+                    <text x="646" y="181" text-anchor="middle" font-family="Unbounded, system-ui, sans-serif" font-size="13" fill="#131313" font-weight="700">3</text>
+                    <text x="668" y="172" fill="rgba(255,255,255,0.92)" font-weight="700" font-size="13">协议约束缺失</text>
+                    <text x="668" y="190" fill="rgba(255,255,255,0.6)" font-size="11">支付前缺少风险确认与法律约束</text>
+
+                    <!-- 问题 4 -->
+                    <rect x="620" y="274" width="300" height="54" rx="14" fill="rgba(255,128,65,0.1)" stroke="rgba(255,128,65,0.4)" />
+                    <circle cx="646" cy="301" r="14" fill="#ff8041" />
+                    <text x="646" y="305" text-anchor="middle" font-family="Unbounded, system-ui, sans-serif" font-size="13" fill="#131313" font-weight="700">4</text>
+                    <text x="668" y="296" fill="rgba(255,255,255,0.92)" font-weight="700" font-size="13">订单体系割裂</text>
+                    <text x="668" y="314" fill="rgba(255,255,255,0.6)" font-size="11">订单号不统一 → 后续处理效率低</text>
+
+                    <!-- 连接线到问题4 -->
+                    <g stroke="rgba(255,128,65,0.4)" stroke-dasharray="4,4" stroke-width="1.2" fill="none">
+                      <path d="M200,423 L250,423 L250,301 L280,301" />
+                      <path d="M580,301 L620,301" />
+                    </g>
+                  </g>
+
+                  <!-- 底部说明 -->
+                  <rect x="40" y="470" width="880" height="34" rx="12" fill="rgba(255,255,255,0.04)" />
+                  <text x="480" y="492" text-anchor="middle" font-family="Alibaba PuHuiTi, system-ui, sans-serif" font-size="12" fill="rgba(255,255,255,0.56)">
+                    橙色节点 = 用户做出错误决策的关键环节 ｜ 橙色卡片 = 定位出的四类核心问题
+                  </text>
+                </svg>
+              </div>
+              <figcaption class="figure-caption">
+                <strong>图 2</strong>：用户决策链路拆解。通过逐节分析"用户在哪里做错了""为什么做错""平台为什么没拦住"，定位出四类核心问题。这些问题不是凭空想出来的，而是从真实事故出发，沿着用户决策路径一步步推导出来的。
+              </figcaption>
+            </div>
+
+            <h3>四类问题详解</h3>
+            <div class="kv" aria-label="四类核心问题">
+              <div class="kv-row">
+                <div class="kv-k"><span class="hl">问题一</span><br>规则感知缺失</div>
+                <div class="kv-v">
+                  用户在下单前并不知道实体物料的退款规则（物料进入生产后无法退款）。<strong>平台没有在关键决策点提示规则</strong>，用户对后果完全没有预期。
+                </div>
+              </div>
+              <div class="kv-row">
+                <div class="kv-k"><span class="hl">问题二</span><br>数量认知错误</div>
+                <div class="kv-v">
+                  用户理解的"每家门店100张"和系统实际计算逻辑不一致。当涉及多门店时，用户需要心算总量（如 20 家门店 × 100 张 = 2000 张），<strong>心算容易出错，且系统未直接展示总量</strong>。
+                </div>
+              </div>
+              <div class="kv-row">
+                <div class="kv-k"><span class="hl">问题三</span><br>协议约束缺失</div>
+                <div class="kv-v">
+                  支付前没有风险确认环节和法律约束。用户下单后如果出现问题，<strong>平台缺乏法律依据来界定责任</strong>，只能被动承担损失。
+                </div>
+              </div>
+              <div class="kv-row">
+                <div class="kv-k"><span class="hl">问题四</span><br>订单体系割裂</div>
+                <div class="kv-v">
+                  商家看到的订单号与供应商系统的订单号不一致。当商家提供订单号咨询退款时，<strong>运营需要手动去后台映射查询</strong>，一个简单问题增加大量人工处理步骤。
+                </div>
+              </div>
+            </div>
+
+            <div class="callout" aria-label="方法论总结">
+              <p class="callout-title" style="font-family: 'Alibaba PuHuiTi', system-ui, sans-serif; font-weight: 900; font-style: italic;"><span aria-hidden="true"></span>方法论：用户决策链路拆解</p>
+              <p class="lead">
+                不从"结果"出发（如"商家下错单了"），而从"过程"出发——把用户每一步的决策拆开，逐一追问三个问题：<strong>用户在哪一步做错了？为什么会做错？平台为什么没拦住？</strong>这样定位出的问题才精确且可执行，而不是笼统地说"体验不好"。
+              </p>
+            </div>
+          </section>
+
+          <section id="validation" class="card" aria-labelledby="validation-title">
+            <h2 id="validation-title">2. 数据验证：三类来源交叉验证</h2>
+            <p class="lead">
+              作为一个风控治理项目，数据来源不像增长项目那样有大量量化指标。我采用了三种数据来源交叉验证问题的真实性和严重程度。
+            </p>
+
+            <div class="grid3" aria-label="三类数据来源">
+              <div class="meta" style="border-color: rgba(255,128,65,0.3);">
+                <div class="meta-label"><span class="accent">来源一</span> · 事故案例</div>
+                <div class="meta-value">
+                  <strong>资损事件本身</strong>是最直接的数据来源。重点关注：商家在哪一步产生误解、为什么没有及时发现、为什么平台没有提前拦截。
+                </div>
+              </div>
+              <div class="meta" style="border-color: rgba(255,128,65,0.3);">
+                <div class="meta-label"><span class="accent">来源二</span> · 客服与运营反馈</div>
+                <div class="meta-value">
+                  和运营同学沟通后发现，实体物料咨询集中在<strong>退款规则、数量计算、订单查询</strong>三个方向——与事故暴露出的风险高度重合。
+                </div>
+              </div>
+              <div class="meta" style="border-color: rgba(255,128,65,0.3);">
+                <div class="meta-label"><span class="accent">来源三</span> · 业务逻辑验证</div>
+                <div class="meta-value">
+                  以订单号问题为例：商家提供订单号后，运营需去后台映射查询。一个简单问题增加多个人工步骤，<strong>从流程角度已证明存在明显效率损失</strong>。
+                </div>
+              </div>
+            </div>
+
+            <div class="callout" aria-label="验证逻辑">
+              <p class="callout-title" style="font-family: 'Alibaba PuHuiTi', system-ui, sans-serif; font-weight: 900; font-style: italic;"><span aria-hidden="true"></span>交叉验证逻辑</p>
+              <p class="lead">
+                虽然没有特别大的量化数据，但三类来源指向了同一组问题：<strong>事故案例</strong>证明了风险真实存在，<strong>客服反馈</strong>证明了问题不是个例，<strong>业务流程验证</strong>证明了效率损失是系统性的。三者交叉验证，确保问题判断的准确性。
+              </p>
+            </div>
+          </section>
+
+          <section id="solution" class="card" aria-labelledby="solution-title">
+            <h2 id="solution-title">3. 解决方案：治因不治果</h2>
+            <p class="lead">
+              我设计方案时有一个核心原则：<strong>不解决结果，只解决原因。</strong>商家下错单是"结果"，但"原因"可能是没看到规则、看不懂数量、不知道后果。方案必须对应原因，而不是头痛医头。
+            </p>
+
+            <div class="figure" aria-label="问题-方案映射图">
+              <div class="figure-media">
+                <svg viewBox="0 0 960 380" role="img" aria-label="四类问题与四类方案的映射关系">
+                  <rect x="0" y="0" width="960" height="380" rx="18" fill="rgba(255,128,65,0.04)" />
+
+                  <!-- 标题行 -->
+                  <text x="180" y="32" text-anchor="middle" font-family="Alibaba PuHuiTi, system-ui, sans-serif" font-size="13" fill="rgba(255,255,255,0.56)" font-weight="700">问题（根因）</text>
+                  <text x="480" y="32" text-anchor="middle" font-family="Alibaba PuHuiTi, system-ui, sans-serif" font-size="13" fill="rgba(255,128,65,0.8)" font-weight="700">解决原则</text>
+                  <text x="780" y="32" text-anchor="middle" font-family="Alibaba PuHuiTi, system-ui, sans-serif" font-size="13" fill="rgba(255,255,255,0.56)" font-weight="700">解决方案</text>
+
+                  <!-- 行 1 -->
+                  <g font-family="Alibaba PuHuiTi, system-ui, sans-serif" font-size="12">
+                    <rect x="40" y="50" width="280" height="62" rx="14" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.12)" />
+                    <text x="56" y="74" fill="rgba(255,255,255,0.9)" font-weight="700">规则感知缺失</text>
+                    <text x="56" y="94" fill="rgba(255,255,255,0.56)" font-size="11">用户没有感知到规则</text>
+
+                    <rect x="360" y="50" width="240" height="62" rx="14" fill="rgba(255,128,65,0.1)" stroke="rgba(255,128,65,0.35)" />
+                    <text x="480" y="74" text-anchor="middle" fill="rgba(255,200,150,0.9)" font-weight="700">提高规则曝光率</text>
+                    <text x="480" y="94" text-anchor="middle" fill="rgba(255,200,150,0.6)" font-size="11">让用户在决策前看到规则</text>
+
+                    <rect x="640" y="50" width="280" height="62" rx="14" fill="rgba(255,128,65,0.08)" stroke="rgba(255,128,65,0.3)" />
+                    <text x="656" y="74" fill="rgba(255,255,255,0.92)" font-weight="700">支付前增加规则提示</text>
+                    <text x="656" y="94" fill="rgba(255,255,255,0.56)" font-size="11">在关键决策点强制曝光退款规则</text>
+
+                    <path d="M320,81 L360,81" stroke="rgba(255,128,65,0.4)" stroke-width="1.5" fill="none" marker-end="url(#arrowR2)" />
+                    <path d="M600,81 L640,81" stroke="rgba(255,128,65,0.4)" stroke-width="1.5" fill="none" marker-end="url(#arrowR2)" />
+                  </g>
+
+                  <!-- 行 2 -->
+                  <g font-family="Alibaba PuHuiTi, system-ui, sans-serif" font-size="12">
+                    <rect x="40" y="130" width="280" height="62" rx="14" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.12)" />
+                    <text x="56" y="154" fill="rgba(255,255,255,0.9)" font-weight="700">数量认知错误</text>
+                    <text x="56" y="174" fill="rgba(255,255,255,0.56)" font-size="11">用户不擅长心算</text>
+
+                    <rect x="360" y="130" width="240" height="62" rx="14" fill="rgba(255,128,65,0.1)" stroke="rgba(255,128,65,0.35)" />
+                    <text x="480" y="154" text-anchor="middle" fill="rgba(255,200,150,0.9)" font-weight="700">展示结果而非解释逻辑</text>
+                    <text x="480" y="174" text-anchor="middle" fill="rgba(255,200,150,0.6)" font-size="11">直接看到总量，无需计算</text>
+
+                    <rect x="640" y="130" width="280" height="62" rx="14" fill="rgba(255,128,65,0.08)" stroke="rgba(255,128,65,0.3)" />
+                    <text x="656" y="154" fill="rgba(255,255,255,0.92)" font-weight="700">增加总量确认</text>
+                    <text x="656" y="174" fill="rgba(255,255,255,0.56)" font-size="11">10家门店×100张 → 总计1000张</text>
+
+                    <path d="M320,161 L360,161" stroke="rgba(255,128,65,0.4)" stroke-width="1.5" fill="none" marker-end="url(#arrowR2)" />
+                    <path d="M600,161 L640,161" stroke="rgba(255,128,65,0.4)" stroke-width="1.5" fill="none" marker-end="url(#arrowR2)" />
+                  </g>
+
+                  <!-- 行 3 -->
+                  <g font-family="Alibaba PuHuiTi, system-ui, sans-serif" font-size="12">
+                    <rect x="40" y="210" width="280" height="62" rx="14" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.12)" />
+                    <text x="56" y="234" fill="rgba(255,255,255,0.9)" font-weight="700">协议约束缺失</text>
+                    <text x="56" y="254" fill="rgba(255,255,255,0.56)" font-size="11">缺少法律约束与提醒</text>
+
+                    <rect x="360" y="210" width="240" height="62" rx="14" fill="rgba(255,128,65,0.1)" stroke="rgba(255,128,65,0.35)" />
+                    <text x="480" y="234" text-anchor="middle" fill="rgba(255,200,150,0.9)" font-weight="700">提醒 + 法律约束双效</text>
+                    <text x="480" y="254" text-anchor="middle" fill="rgba(255,200,150,0.6)" font-size="11">同时解决认知和责任问题</text>
+
+                    <rect x="640" y="210" width="280" height="62" rx="14" fill="rgba(255,128,65,0.08)" stroke="rgba(255,128,65,0.3)" />
+                    <text x="656" y="234" fill="rgba(255,255,255,0.92)" font-weight="700">增加协议勾选</text>
+                    <text x="656" y="254" fill="rgba(255,255,255,0.56)" font-size="11">支付前强制勾选风险确认协议</text>
+
+                    <path d="M320,241 L360,241" stroke="rgba(255,128,65,0.4)" stroke-width="1.5" fill="none" marker-end="url(#arrowR2)" />
+                    <path d="M600,241 L640,241" stroke="rgba(255,128,65,0.4)" stroke-width="1.5" fill="none" marker-end="url(#arrowR2)" />
+                  </g>
+
+                  <!-- 行 4 -->
+                  <g font-family="Alibaba PuHuiTi, system-ui, sans-serif" font-size="12">
+                    <rect x="40" y="290" width="280" height="62" rx="14" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.12)" />
+                    <text x="56" y="314" fill="rgba(255,255,255,0.9)" font-weight="700">订单体系割裂</text>
+                    <text x="56" y="334" fill="rgba(255,255,255,0.56)" font-size="11">订单号不统一，映射查询慢</text>
+
+                    <rect x="360" y="290" width="240" height="62" rx="14" fill="rgba(255,128,65,0.1)" stroke="rgba(255,128,65,0.35)" />
+                    <text x="480" y="314" text-anchor="middle" fill="rgba(255,200,150,0.9)" font-weight="700">从根源消除而非优化流程</text>
+                    <text x="480" y="334" text-anchor="middle" fill="rgba(255,200,150,0.6)" font-size="11">不做查询优化，做体系统一</text>
+
+                    <rect x="640" y="290" width="280" height="62" rx="14" fill="rgba(255,128,65,0.08)" stroke="rgba(255,128,65,0.3)" />
+                    <text x="656" y="314" fill="rgba(255,255,255,0.92)" font-weight="700">统一订单号体系</text>
+                    <text x="656" y="334" fill="rgba(255,255,255,0.56)" font-size="11">商家、平台、供应商共用同一订单号</text>
+
+                    <path d="M320,321 L360,321" stroke="rgba(255,128,65,0.4)" stroke-width="1.5" fill="none" marker-end="url(#arrowR2)" />
+                    <path d="M600,321 L640,321" stroke="rgba(255,128,65,0.4)" stroke-width="1.5" fill="none" marker-end="url(#arrowR2)" />
+                  </g>
+
+                  <defs>
+                    <marker id="arrowR2" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                      <path d="M0,0 L8,4 L0,8 Z" fill="rgba(255,128,65,0.5)" />
+                    </marker>
+                  </defs>
+                </svg>
+              </div>
+              <figcaption class="figure-caption">
+                <strong>图 3</strong>：问题-方案映射。每个方案都严格对应一个根因，而非表面症状。核心原则是"治因不治果"——不优化查询流程，而是统一订单号体系；不解释计算逻辑，而是直接展示总量。
+              </figcaption>
+            </div>
+
+            <div class="callout" aria-label="整体思路">
+              <p class="callout-title" style="font-family: 'Alibaba PuHuiTi', system-ui, sans-serif; font-weight: 900; font-style: italic;"><span aria-hidden="true"></span>整体思路：信息透明 + 风险前置 + 系统统一</p>
+              <p class="lead">
+                四个方案背后是三个设计理念：<strong>信息透明</strong>（规则提示、总量确认让用户充分知情）、<strong>风险前置</strong>（协议勾选在支付前拦截风险）、<strong>系统统一</strong>（统一订单号从根源消除效率损失）。这不是四个孤立的修补，而是一套系统性的风险治理框架。
+              </p>
+            </div>
+          </section>
+
+          <section id="tradeoff" class="card" aria-labelledby="tradeoff-title">
+            <h2 id="tradeoff-title">4. 方案对比与取舍</h2>
+            <p class="lead">
+              以"数量认知错误"问题为例，当时考虑过两种方案。最终选择不是基于开发成本，而是基于<strong>用户认知习惯</strong>。
+            </p>
+
+            <div class="grid2" aria-label="方案对比">
+              <div class="meta" style="border-color: rgba(255,255,255,0.14);">
+                <div class="meta-label"><span class="accent">方案一</span> · 优化提示文案</div>
+                <div class="meta-value">
+                  <strong>做法</strong>：在填写数量时增加提示文案"每家门店100张"<br><br>
+                  <strong>优点</strong>：开发成本低<br><br>
+                  <strong>缺点</strong>：依然依赖用户阅读和理解，用户仍需自己心算总量
+                </div>
+              </div>
+              <div class="meta" style="border-color: rgba(255,128,65,0.4); background: rgba(255,128,65,0.06);">
+                <div class="meta-label"><span class="accent">方案二（最终选择）</span> · 直接展示总量</div>
+                <div class="meta-value">
+                  <strong>做法</strong>：系统自动计算并展示"20家门店 × 100张 = 总计2000张"<br><br>
+                  <strong>优点</strong>：用户不需要理解逻辑，直接看到结果<br><br>
+                  <strong>缺点</strong>：需要联动计算逻辑，开发成本略高
+                </div>
+              </div>
+            </div>
+
+            <div class="callout" aria-label="决策逻辑">
+              <p class="callout-title" style="font-family: 'Alibaba PuHuiTi', system-ui, sans-serif; font-weight: 900; font-style: italic;"><span aria-hidden="true"></span>为什么选方案二？</p>
+              <p class="lead">
+                相比"解释规则"，"展示结果"更符合用户认知习惯。用户不关心系统怎么算的，只关心"我到底要买多少"。方案一虽然成本低，但本质上是把计算负担留给了用户；方案二虽然成本略高，但从根本上消除了认知错误的可能性。<strong>产品决策不应该只看开发成本，更应该看是否真正解决了用户问题。</strong>
+              </p>
+            </div>
+          </section>
+
+          <section id="collab" class="card" aria-labelledby="collab-title">
+            <h2 id="collab-title">5. 跨团队协同：最大的挑战不是方案，而是协同</h2>
+            <p class="lead">
+              这个项目涉及商家侧、运营侧、法务、供应商四个角色，不同角色关注点完全不同。最大的挑战不是产品方案设计，而是不断把大家拉回同一个目标——<strong>降低资损风险</strong>。
+            </p>
+
+            <table class="table" aria-label="各团队关注点与协同要点">
+              <thead>
+                <tr>
+                  <th scope="col">协同方</th>
+                  <th scope="col">核心关注</th>
+                  <th scope="col">潜在冲突</th>
+                  <th scope="col">协同策略</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>运营</td>
+                  <td>退款工单是否减少</td>
+                  <td>希望快速上线，不愿等待系统改造</td>
+                  <td>用客服数据证明问题严重性，争取优先级</td>
+                </tr>
+                <tr>
+                  <td>法务</td>
+                  <td>协议是否有效</td>
+                  <td>对协议措辞要求严格，迭代周期长</td>
+                  <td>提前对齐协议框架，预留法务审核时间</td>
+                </tr>
+                <tr>
+                  <td>研发</td>
+                  <td>实现复杂度</td>
+                  <td>统一订单号涉及底层改造，技术方案有分歧</td>
+                  <td>明确业务目标优先级，分阶段推进</td>
+                </tr>
+                <tr>
+                  <td>供应商</td>
+                  <td>订单号变更影响</td>
+                  <td>已有系统对接，变更成本高</td>
+                  <td>评估影响范围，协调过渡方案</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="callout" aria-label="协同感悟">
+              <p class="callout-title" style="font-family: 'Alibaba PuHuiTi', system-ui, sans-serif; font-weight: 900; font-style: italic;"><span aria-hidden="true"></span>关键认知</p>
+              <p class="lead">
+                这是我第一次深刻体会到：<strong>产品经理很多时候解决的是组织问题，而不是页面问题。</strong>每个团队都有自己的视角和诉求，如果不主动把大家拉回同一个目标，讨论很容易陷入各自视角的细节中。产品经理在这里扮演的是"目标对齐者"的角色。
+              </p>
+            </div>
+          </section>
+
+          <section id="value" class="card" aria-labelledby="value-title">
+            <h2 id="value-title">6. 项目价值：从事后兜底到事前拦截</h2>
+            <p class="lead">
+              我认为最大的价值不是加了几个弹窗，而是建立了一套事前风险治理机制。项目上线前后，风险处理链路发生了根本性变化。
+            </p>
+
+            <div class="figure" aria-label="风险治理前后对比">
+              <div class="figure-media">
+                <svg viewBox="0 0 960 360" role="img" aria-label="风险治理前后对比">
+                  <rect x="0" y="0" width="960" height="360" rx="18" fill="rgba(255,255,255,0.02)" />
+
+                  <!-- 分隔线 -->
+                  <line x1="480" y1="20" x2="480" y2="340" stroke="rgba(255,255,255,0.1)" stroke-dasharray="6,6" />
+
+                  <!-- 左侧：上线前 -->
+                  <text x="240" y="36" text-anchor="middle" font-family="Alibaba PuHuiTi, system-ui, sans-serif" font-size="14" fill="rgba(255,100,100,0.7)" font-weight="700">项目上线前 · 被动处理</text>
+                  <g font-family="Alibaba PuHuiTi, system-ui, sans-serif" font-size="12">
+                    <rect x="60" y="56" width="360" height="36" rx="10" fill="rgba(255,100,100,0.08)" stroke="rgba(255,100,100,0.25)" />
+                    <text x="240" y="79" text-anchor="middle" fill="rgba(255,200,200,0.8)">误下单</text>
+                    <path d="M240,92 L240,108" stroke="rgba(255,100,100,0.3)" stroke-width="1.5" fill="none" marker-end="url(#arrowDown)" />
+                    <rect x="60" y="110" width="360" height="36" rx="10" fill="rgba(255,100,100,0.08)" stroke="rgba(255,100,100,0.25)" />
+                    <text x="240" y="133" text-anchor="middle" fill="rgba(255,200,200,0.8)">退款</text>
+                    <path d="M240,146 L240,162" stroke="rgba(255,100,100,0.3)" stroke-width="1.5" fill="none" marker-end="url(#arrowDown)" />
+                    <rect x="60" y="164" width="360" height="36" rx="10" fill="rgba(255,100,100,0.08)" stroke="rgba(255,100,100,0.25)" />
+                    <text x="240" y="187" text-anchor="middle" fill="rgba(255,200,200,0.8)">客服处理</text>
+                    <path d="M240,200 L240,216" stroke="rgba(255,100,100,0.3)" stroke-width="1.5" fill="none" marker-end="url(#arrowDown)" />
+                    <rect x="60" y="218" width="360" height="36" rx="10" fill="rgba(255,100,100,0.08)" stroke="rgba(255,100,100,0.25)" />
+                    <text x="240" y="241" text-anchor="middle" fill="rgba(255,200,200,0.8)">运营介入</text>
+                    <path d="M240,254 L240,270" stroke="rgba(255,100,100,0.3)" stroke-width="1.5" fill="none" marker-end="url(#arrowDown)" />
+                    <rect x="60" y="272" width="360" height="36" rx="10" fill="rgba(255,80,80,0.14)" stroke="rgba(255,80,80,0.4)" />
+                    <text x="240" y="295" text-anchor="middle" fill="rgba(255,160,160,0.85)" font-weight="700">平台承担损失</text>
+                  </g>
+                  <text x="240" y="328" text-anchor="middle" font-family="Alibaba PuHuiTi, system-ui, sans-serif" font-size="11" fill="rgba(255,255,255,0.4)">5 个环节 · 风险发生后逐级处理 · 最终资损</text>
+
+                  <!-- 右侧：上线后 -->
+                  <text x="720" y="36" text-anchor="middle" font-family="Alibaba PuHuiTi, system-ui, sans-serif" font-size="14" fill="rgba(100,255,150,0.7)" font-weight="700">项目上线后 · 主动拦截</text>
+                  <g font-family="Alibaba PuHuiTi, system-ui, sans-serif" font-size="12">
+                    <rect x="540" y="56" width="360" height="36" rx="10" fill="rgba(255,128,65,0.1)" stroke="rgba(255,128,65,0.35)" />
+                    <text x="720" y="79" text-anchor="middle" fill="rgba(255,200,150,0.85)">支付前发现问题</text>
+                    <path d="M720,92 L720,108" stroke="rgba(100,255,150,0.3)" stroke-width="1.5" fill="none" marker-end="url(#arrowDown)" />
+                    <rect x="540" y="110" width="360" height="36" rx="10" fill="rgba(100,255,150,0.08)" stroke="rgba(100,255,150,0.25)" />
+                    <text x="720" y="133" text-anchor="middle" fill="rgba(180,255,200,0.8)">返回修改</text>
+                    <path d="M720,146 L720,162" stroke="rgba(100,255,150,0.3)" stroke-width="1.5" fill="none" marker-end="url(#arrowDown)" />
+                    <rect x="540" y="164" width="360" height="36" rx="10" fill="rgba(100,255,150,0.14)" stroke="rgba(100,255,150,0.4)" />
+                    <text x="720" y="187" text-anchor="middle" fill="rgba(180,255,200,0.85)" font-weight="700">问题终止</text>
+                  </g>
+                  <text x="720" y="228" text-anchor="middle" font-family="Alibaba PuHuiTi, system-ui, sans-serif" font-size="11" fill="rgba(255,255,255,0.4)">3 个环节 · 风险在源头被拦截 · 无资损</text>
+
+                  <!-- 对比说明 -->
+                  <rect x="540" y="250" width="360" height="80" rx="14" fill="rgba(100,255,150,0.05)" stroke="rgba(100,255,150,0.2)" />
+                  <text x="720" y="274" text-anchor="middle" font-family="Alibaba PuHuiTi, system-ui, sans-serif" font-size="12" fill="rgba(180,255,200,0.7)" font-weight="700">系统性优化效果</text>
+                  <text x="720" y="294" text-anchor="middle" font-family="Alibaba PuHuiTi, system-ui, sans-serif" font-size="11" fill="rgba(255,255,255,0.56)">商家体验更稳定 · 平台成本更低</text>
+                  <text x="720" y="312" text-anchor="middle" font-family="Alibaba PuHuiTi, system-ui, sans-serif" font-size="11" fill="rgba(255,255,255,0.56)">运营效率更高 · 风险在源头终止</text>
+
+                  <defs>
+                    <marker id="arrowDown" markerWidth="8" markerHeight="8" refX="4" refY="6" orient="auto">
+                      <path d="M0,0 L8,0 L4,8 Z" fill="rgba(255,255,255,0.35)" />
+                    </marker>
+                  </defs>
+                </svg>
+              </div>
+              <figcaption class="figure-caption">
+                <strong>图 4</strong>：风险治理前后对比。上线前，风险经历 5 个环节逐级处理最终导致资损；上线后，风险在支付前 3 个环节内被拦截终止。这是从"被动兜底"到"主动拦截"的根本性转变。
+              </figcaption>
+            </div>
+
+            <div class="callout" aria-label="价值总结">
+              <p class="callout-title" style="font-family: 'Alibaba PuHuiTi', system-ui, sans-serif; font-weight: 900; font-style: italic;"><span aria-hidden="true"></span>这不只是加几个弹窗，而是系统性优化</p>
+              <p class="lead">
+                规则提示解决"不知道"，总量确认解决"算错量"，协议勾选解决"不担责"，统一订单号解决"查不到"。四个方案组合起来，构成了一套完整的事前风险治理机制——<strong>风险在源头被拦截</strong>，而不是在事后被处理。这是一个典型的系统性优化，而非单点修补。
+              </p>
+            </div>
+          </section>
+
+          <section id="takeaways" class="card" aria-labelledby="takeaways-title">
+            <h2 id="takeaways-title">7. 复盘与成长：从体验思维到业务思维</h2>
+            <p class="lead">
+              这是我转产品后的第一个项目。最大的收获不是学会了写 PRD，而是完成了从"体验思维"到"业务思维"的认知转变。
+            </p>
+
+            <div class="grid2" aria-label="思维转变">
+              <div class="meta" style="border-color: rgba(255,255,255,0.14);">
+                <div class="meta-label">以前做设计时</div>
+                <div class="meta-value">
+                  <span class="pill"><span class="accent">关注</span> 页面是否清晰</span>
+                  <span class="pill"><span class="accent">关注</span> 交互是否顺畅</span>
+                  <div style="height: 10px"></div>
+                  思维边界停留在"用户看到的界面层面"，以体验质量为唯一衡量标准。
+                </div>
+              </div>
+              <div class="meta" style="border-color: rgba(255,128,65,0.4); background: rgba(255,128,65,0.04);">
+                <div class="meta-label">转产品后</div>
+                <div class="meta-value">
+                  <span class="pill"><span class="accent">关注</span> 用户价值</span>
+                  <span class="pill"><span class="accent">关注</span> 业务价值</span>
+                  <span class="pill"><span class="accent">关注</span> 风险成本</span>
+                  <span class="pill"><span class="accent">关注</span> 组织协同</span>
+                  <div style="height: 10px"></div>
+                  一个简单的提示文案，背后关联着商家认知、平台资损、法务风险、运营效率。
+                </div>
+              </div>
+            </div>
+
+            <h3>核心收获</h3>
+            <ul class="list">
+              <li><strong>从"治果"到"治因"</strong>：不解决表面问题（下错单），而解决根本原因（看不懂规则、算错数量）。这是产品思维和运营思维的核心区别。</li>
+              <li><strong>从"单点"到"系统"</strong>：四个方案不是孤立的修补，而是构成了一套事前风险治理框架——信息透明、风险前置、系统统一。</li>
+              <li><strong>从"页面"到"组织"</strong>：产品经理很多时候解决的是组织问题。跨团队协同中，最重要的是把所有人拉回同一个目标。</li>
+              <li><strong>从"体验"到"业务"</strong>：一个提示文案背后关联着商家认知、平台资损、法务风险、运营效率。产品经理需要同时考虑多个维度的平衡。</li>
+            </ul>
+
+            <div class="callout" aria-label="最重要的成长">
+              <p class="callout-title" style="font-family: 'Alibaba PuHuiTi', system-ui, sans-serif; font-weight: 900; font-style: italic;"><span aria-hidden="true"></span>最重要的成长</p>
+              <p class="lead">
+                我学到的不只是如何写 PRD，更重要的是学会了如何<strong>从业务目标出发设计产品机制</strong>。不是"页面怎么做更好看"，而是"这个机制如何降低资损风险、提升运营效率、守住合规底线"。这也是我决定继续走产品方向的重要原因。
+              </p>
+            </div>
+
+            <div class="callout collapsible" aria-label="产品思维七问总结" id="summary-callout">
+              <button class="collapsible-trigger" aria-expanded="false" aria-controls="summary-content" id="summary-trigger">
+                <p class="callout-title" style="font-family: 'Alibaba PuHuiTi', system-ui, sans-serif; font-weight: 900; font-style: italic;"><span aria-hidden="true"></span>产品思维七问 · 完整复盘总结<span aria-hidden="true" class="collapsible-icon">▶</span></p>
+              </button>
+              <div class="collapsible-content" id="summary-content" aria-hidden="true">
+                <div class="kv" style="margin-top: 16px;">
+                  <div class="kv-row">
+                    <div class="kv-k"><span class="hl">Q1 问题发现</span></div>
+                    <div class="kv-v">从真实事故出发，用用户决策链路拆解方法，逐一追问"用户在哪步做错了？为什么？平台为什么没拦住？"定位出四类核心问题。</div>
+                  </div>
+                  <div class="kv-row">
+                    <div class="kv-k"><span class="hl">Q2 数据验证</span></div>
+                    <div class="kv-v">事故案例 + 客服运营反馈 + 业务逻辑验证，三类来源交叉验证，确保问题判断准确。</div>
+                  </div>
+                  <div class="kv-row">
+                    <div class="kv-k"><span class="hl">Q3 方案设计</span></div>
+                    <div class="kv-v">原则是"不解决结果，只解决原因"。规则提示对应感知缺失，总量确认对应认知错误，协议勾选对应约束缺失，统一订单号对应体系割裂。</div>
+                  </div>
+                  <div class="kv-row">
+                    <div class="kv-k"><span class="hl">Q4 方案取舍</span></div>
+                    <div class="kv-v">以数量认知为例，选择"展示总量"而非"优化文案"——展示结果比解释逻辑更符合用户认知习惯，产品决策不应只看开发成本。</div>
+                  </div>
+                  <div class="kv-row">
+                    <div class="kv-k"><span class="hl">Q5 最大挑战</span></div>
+                    <div class="kv-v">跨团队协同。四个角色关注点不同，需要不断把大家拉回"降低资损风险"这一共同目标。产品经理解决的是组织问题。</div>
+                  </div>
+                  <div class="kv-row">
+                    <div class="kv-k"><span class="hl">Q6 项目价值</span></div>
+                    <div class="kv-v">建立事前风险治理机制，将风险从"事后5环节处理+资损"转变为"事前3环节拦截+终止"。系统性优化，而非单点修补。</div>
+                  </div>
+                  <div class="kv-row">
+                    <div class="kv-k"><span class="hl">Q7 个人成长</span></div>
+                    <div class="kv-v">从体验思维（页面清晰、交互顺畅）转向业务思维（用户价值、业务价值、风险成本、组织协同）。学会了从业务目标出发设计产品机制。</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <footer class="footer" aria-label="页脚">
+              <div>
+                <strong>样式规范</strong>：底色 #131313｜重点色 #FF8041｜正文色 #FFFFFF｜标题字体 Unbounded（英数）+ 阿里妈妈数黑体（中文）｜正文 阿里巴巴普惠体
+              </div>
+              <div style="margin-top: 6px">本页为静态 HTML，可直接双击打开或用任意静态服务器预览。复用写评返券项目 CSS 样式。</div>
+            </footer>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <!-- 折叠模块样式与交互 -->
+    <style>
+      .collapsible { position: relative; transition: all 0.3s ease; }
+      .collapsible-trigger {
+        width: 100%; background: none; border: none; padding: 0;
+        cursor: pointer; color: inherit; display: flex;
+        justify-content: space-between; align-items: center;
+      }
+      .collapsible-icon {
+        display: inline-block; transition: transform 0.3s ease;
+        margin-left: auto; padding-left: 8px;
+      }
+      .collapsible-content {
+        max-height: 0; overflow: hidden; opacity: 0;
+        transition: all 0.3s ease;
+      }
+      .collapsible-content.active {
+        max-height: 1200px; opacity: 1; margin-top: 16px;
+      }
+      .callout.collapsible .callout-title {
+        margin: 0; cursor: pointer; display: flex;
+        width: 100%; align-items: center;
+      }
+      .collapsible.expanded .collapsible-icon { transform: rotate(90deg); }
+    </style>
+
+    <script>
+      (function() {
+        const trigger = document.getElementById('summary-trigger');
+        const content = document.getElementById('summary-content');
+        const callout = document.getElementById('summary-callout');
+
+        if (!trigger || !content) return;
+
+        trigger.addEventListener('click', function() {
+          const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+          trigger.setAttribute('aria-expanded', !isExpanded);
+          content.setAttribute('aria-hidden', isExpanded);
+          content.classList.toggle('active', !isExpanded);
+          callout.classList.toggle('expanded', !isExpanded);
+        });
+      })();
+    </script>
+  </body>
+</html>
