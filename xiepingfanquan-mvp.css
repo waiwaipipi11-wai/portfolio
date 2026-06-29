@@ -533,11 +533,13 @@ section {
 .img {
   display: block;
   width: 100%;
-  height: auto;
+  max-height: 520px;
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
   border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(0, 0, 0, 0.14);
-  cursor: pointer;
+  cursor: zoom-in;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -567,6 +569,7 @@ section {
 
 .img-grid .img {
   margin: 0;
+  max-height: 420px;
 }
 
 .img-grid figcaption {
