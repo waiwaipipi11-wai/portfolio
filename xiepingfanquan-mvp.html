@@ -403,67 +403,6 @@
                   </div>
                 </div>
               </div>
-              <div class="callout collapsible" aria-label="发券总量档位设计说明" id="coupon-quota-callout">
-                <button class="collapsible-trigger" aria-expanded="false" aria-controls="coupon-quota-content" id="coupon-quota-trigger">
-                  <p class="callout-title" style="font-family: 'Alibaba PuHuiTi', system-ui, sans-serif; font-weight: 900; font-style: italic;"><span aria-hidden="true"></span>为什么预置发券总量档位为200、500、1000张？<span aria-hidden="true" class="collapsible-icon">▶</span></p>
-                </button>
-                <div class="collapsible-content" id="coupon-quota-content" aria-hidden="true">
-                  <div class="grid3" style="margin-top: 16px; gap: 16px;">
-                    <div class="meta" style="background: rgba(255,128,65,0.08); padding: 16px; border-radius: 12px;">
-                      <div class="meta-label"><span class="accent">200张</span> · 小商家</div>
-                      <div class="meta-value">
-                        <strong>典型场景</strong><br>
-                        县城餐馆、社区门店、小型咖啡店<br><br>
-                        <strong>测算逻辑</strong><br>
-                        日均3条评价 × 60天 ≈ 180条，接近200张的总量设计，匹配小门店的自然评价产出节奏。
-                      </div>
-                    </div>
-                    <div class="meta" style="background: rgba(255,128,65,0.15); padding: 16px; border-radius: 12px; border: 1px solid rgba(255,128,65,0.4);">
-                      <div class="meta-label"><span class="accent">500张（默认）</span> · 中腰部商家</div>
-                      <div class="meta-value">
-                        <strong>典型场景</strong><br>
-                        火锅店、连锁奶茶店、商场餐饮<br><br>
-                        <strong>测算逻辑</strong><br>
-                        日均8-10条评价 × 60天 ≈ 500条，覆盖国内绝大多数地级市商家的订单规模，因此设为默认档位。
-                      </div>
-                    </div>
-                    <div class="meta" style="background: rgba(255,128,65,0.08); padding: 16px; border-radius: 12px;">
-                      <div class="meta-label"><span class="accent">1000张</span> · 大型连锁</div>
-                      <div class="meta-value">
-                        <strong>典型场景</strong><br>
-                        海底捞、瑞幸等全国连锁品牌<br><br>
-                        <strong>测算逻辑</strong><br>
-                        多门店布局、订单量高，需要更大的预算池支撑活动周期内的激励发放，匹配连锁品牌的经营规模。
-                      </div>
-                    </div>
-                  </div>
-                  <div style="margin-top: 16px; padding: 12px; background: rgba(255,255,255,0.05); border-radius: 8px;">
-                    <p class="lead" style="margin: 0; font-size: 14px;">档位本质是运营分层：200→500→1000的梯度，对应小商家→中商家→大商家的需求差异，用预置档位降低商家配置成本，同时匹配不同规模门店的实际评价产出能力。</p>
-                  </div>
-                </div>
-              </div>
-              <script>
-                // 为发券总量档位设计模块添加展开收起交互
-                (function() {
-                  const trigger = document.getElementById('coupon-quota-trigger');
-                  const content = document.getElementById('coupon-quota-content');
-                  const icon = trigger.querySelector('.collapsible-icon');
-                  const callout = document.getElementById('coupon-quota-callout');
-                  
-                  if (!trigger || !content) return;
-                  
-                  trigger.addEventListener('click', function() {
-                    const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
-                    // 切换展开/收起状态
-                    trigger.setAttribute('aria-expanded', !isExpanded);
-                    content.setAttribute('aria-hidden', isExpanded);
-                  
-                    // 切换内容显示
-                    content.classList.toggle('active', !isExpanded);
-                    callout.classList.toggle('expanded', !isExpanded);
-                  });
-                })();
-              </script>
               <script>
                 // 为活动冲突校验模块添加展开收起交互
                 (function() {
@@ -541,6 +480,67 @@
                 <div class="kv-k">字数与券额</div>
                 <div class="kv-v">默认 <span class="hl">15</span> 字；可选 <span class="hl">30</span> 字（联动默认券额 <span class="hl">15</span> 元/张），减少商家纠结与配置错误。</div>
               </div>
+              <div class="callout collapsible" aria-label="发券总量档位设计说明" id="coupon-quota-callout">
+                <button class="collapsible-trigger" aria-expanded="false" aria-controls="coupon-quota-content" id="coupon-quota-trigger">
+                  <p class="callout-title" style="font-family: 'Alibaba PuHuiTi', system-ui, sans-serif; font-weight: 900; font-style: italic;"><span aria-hidden="true"></span>为什么预置发券总量档位为200、500、1000张？<span aria-hidden="true" class="collapsible-icon">▶</span></p>
+                </button>
+                <div class="collapsible-content" id="coupon-quota-content" aria-hidden="true">
+                  <div class="grid3" style="margin-top: 16px; gap: 16px;">
+                    <div class="meta" style="background: rgba(255,128,65,0.08); padding: 16px; border-radius: 12px;">
+                      <div class="meta-label"><span class="accent">200张</span> · 小商家</div>
+                      <div class="meta-value">
+                        <strong>典型场景</strong><br>
+                        县城餐馆、社区门店、小型咖啡店<br><br>
+                        <strong>测算逻辑</strong><br>
+                        日均3条评价 × 60天 ≈ 180条，接近200张的总量设计，匹配小门店的自然评价产出节奏。
+                      </div>
+                    </div>
+                    <div class="meta" style="background: rgba(255,128,65,0.15); padding: 16px; border-radius: 12px; border: 1px solid rgba(255,128,65,0.4);">
+                      <div class="meta-label"><span class="accent">500张（默认）</span> · 中腰部商家</div>
+                      <div class="meta-value">
+                        <strong>典型场景</strong><br>
+                        火锅店、连锁奶茶店、商场餐饮<br><br>
+                        <strong>测算逻辑</strong><br>
+                        日均8-10条评价 × 60天 ≈ 500条，覆盖国内绝大多数地级市商家的订单规模，因此设为默认档位。
+                      </div>
+                    </div>
+                    <div class="meta" style="background: rgba(255,128,65,0.08); padding: 16px; border-radius: 12px;">
+                      <div class="meta-label"><span class="accent">1000张</span> · 大型连锁</div>
+                      <div class="meta-value">
+                        <strong>典型场景</strong><br>
+                        海底捞、瑞幸等全国连锁品牌<br><br>
+                        <strong>测算逻辑</strong><br>
+                        多门店布局、订单量高，需要更大的预算池支撑活动周期内的激励发放，匹配连锁品牌的经营规模。
+                      </div>
+                    </div>
+                  </div>
+                  <div style="margin-top: 16px; padding: 12px; background: rgba(255,255,255,0.05); border-radius: 8px;">
+                    <p class="lead" style="margin: 0; font-size: 14px;">档位本质是运营分层：200→500→1000的梯度，对应小商家→中商家→大商家的需求差异，用预置档位降低商家配置成本，同时匹配不同规模门店的实际评价产出能力。</p>
+                  </div>
+                </div>
+              </div>
+              <script>
+                // 为发券总量档位设计模块添加展开收起交互
+                (function() {
+                  const trigger = document.getElementById('coupon-quota-trigger');
+                  const content = document.getElementById('coupon-quota-content');
+                  const icon = trigger.querySelector('.collapsible-icon');
+                  const callout = document.getElementById('coupon-quota-callout');
+                  
+                  if (!trigger || !content) return;
+                  
+                  trigger.addEventListener('click', function() {
+                    const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+                    // 切换展开/收起状态
+                    trigger.setAttribute('aria-expanded', !isExpanded);
+                    content.setAttribute('aria-hidden', isExpanded);
+                  
+                    // 切换内容显示
+                    content.classList.toggle('active', !isExpanded);
+                    callout.classList.toggle('expanded', !isExpanded);
+                  });
+                })();
+              </script>
               <div class="callout collapsible" aria-label="券面额设计说明" id="coupon-amount-callout">
                 <button class="collapsible-trigger" aria-expanded="false" aria-controls="coupon-amount-content" id="coupon-amount-trigger">
                   <p class="callout-title" style="font-family: 'Alibaba PuHuiTi', system-ui, sans-serif; font-weight: 900; font-style: italic;"><span aria-hidden="true"></span>为什么券面额设置为10元、15元、20元，上限100元？<span aria-hidden="true" class="collapsible-icon">▶</span></p>
